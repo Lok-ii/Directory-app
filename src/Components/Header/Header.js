@@ -9,8 +9,8 @@ const Header = () => {
             Lokesh Kataria's Directory App
         </p>
         <nav>
-            <Link to={"/"} ><button className='addPerson'>Add New Person</button></Link>
-            <Link to={"/retrieve"}><button className="retrieve">Retrieve Information</button></Link>            
+            <Link className='navLinks' to={"/"} ><button className='addBtn'>Add New Person</button></Link>
+            <Link className='navLinks' to={"/retrieve"}><button className="addBtn">Retrieve Information</button></Link>            
         </nav>
     </header>
   )

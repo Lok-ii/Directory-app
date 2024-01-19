@@ -22,7 +22,7 @@ nav{
     gap: 3rem;
 }
 
-nav button{
+.addBtn{
     border: none;
     background-color: #4573C4;
     color: inherit;
@@ -30,4 +30,14 @@ nav button{
     font-weight: 500;
     cursor: pointer;
     padding: 0.9rem 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.addBtn:active{
+    transform: scale(0.98);
+}
+
+.navLinks{
+    text-decoration: none;
+    color: inherit;
 }
