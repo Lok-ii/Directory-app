@@ -4,7 +4,7 @@ import Table from "../Table/Table";
 
 const AddNewPerson = () => {
   let currDate = new Date();
-  const nameRef = useRef();
+  const nameRef = useRef(null);
   const dateRef = useRef(currDate);
   const aadharRef = useRef();
   const mobileRef = useRef();
@@ -14,7 +14,7 @@ const AddNewPerson = () => {
 
   useEffect(() => {
     setRow(() => {
-      let data = JSON.parse(localStorage.getItem("rows"));
+      let data = JSON.parse(localStorage.getItem("rows")) || [];
       return data;
     });
   }, []);
@@ -99,7 +99,7 @@ const AddNewPerson = () => {
         </div>
       </form>
 
-      <Table rows={JSON.parse(localStorage.getItem("rows"))} setRows={setRow} />
+      <Table rows={JSON.parse(localStorage.getItem("rows")) || []} setRows={setRow} />
 
       <div className="addBtnContainer">
         <button className="addBtn" onClick={() => setHidden(() => "flex")}>

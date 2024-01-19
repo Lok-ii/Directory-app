@@ -1,6 +1,7 @@
 table{
     width: 100%;
     border-spacing: 0;
+    text-align: center;
 }
 
 thead{
@@ -11,5 +12,9 @@ thead{
 th, td{
     padding: 0.3rem 1rem;
     border: 1px solid grey;
+    text-align: center;
+}
+
+tbody{
     text-align: center;
 }
