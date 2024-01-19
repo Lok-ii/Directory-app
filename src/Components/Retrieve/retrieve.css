@@ -1,0 +1,40 @@
+.retrievePage{
+    width: 98%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    border: 2px solid gray;
+}
+
+.searchBox{
+    width: 100%;
+    padding: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.search{
+    width: 70%;
+    padding: 0.5rem;
+    /* border: none; */
+}
+
+.searchBtn{
+    border: none;
+    background-color: #4573C4;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.55rem 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.searchBtn:active{
+    transform: scale(0.98);
+}

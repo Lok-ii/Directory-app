@@ -10,7 +10,7 @@
     position: relative;
 }
 
-.addPersonHeading{
+.addPersonHeading, .retrieveHead{
     font-size: 1.4rem;
     font-weight: 600;
 }
@@ -39,6 +39,7 @@
 .getUserDetails{
     width: 100%;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -49,6 +50,25 @@
 .getUserDetails input{
     width: 18%;
     padding: 0.5rem 1rem;
+    border: none;
+}
+
+.dob{
+    padding: 0.2rem 1rem;
+}
+
+.formTitle{
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 500;
+}
+
+.addDetails{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -61,4 +81,5 @@
     cursor: pointer;
     padding: 0.5rem 2rem;
     transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 2rem -0.2rem gray;
 }

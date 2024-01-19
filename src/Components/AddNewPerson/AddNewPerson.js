@@ -4,10 +4,10 @@ import Table from "../Table/Table";
 
 const AddNewPerson = () => {
   let currDate = new Date();
-  const nameRef = useRef(null);
+  const nameRef = useRef();
   const dateRef = useRef(currDate);
-  const aadharRef = useRef(null);
-  const mobileRef = useRef(null);
+  const aadharRef = useRef();
+  const mobileRef = useRef();
   const [ageDifference, setDiff] = useState("");
   const [rows, setRow] = useState([]);
   const [hidden, setHidden] = useState("none");
@@ -32,7 +32,6 @@ const AddNewPerson = () => {
           age: ageDifference,
         },
       ];
-      // let storageData = JSON.parse(localStorage.getItem("rows"));
       localStorage.setItem("rows", JSON.stringify(newData));
       return newData;
     });
@@ -42,7 +41,7 @@ const AddNewPerson = () => {
     dateRef.current.value = "";
     aadharRef.current.value = "";
     mobileRef.current.value = "";
-    setDiff( ()=> 0);
+    setDiff(() => 0);
   };
 
   const ageCalculator = () => {
@@ -63,37 +62,44 @@ const AddNewPerson = () => {
         onSubmit={addPerson}
         style={{ display: hidden }}
       >
-        <input type="text" ref={nameRef} className="name" required />
-        <input
-          type="date"
-          ref={dateRef}
-          className="dob"
-          required
-          onChange={ageCalculator}
-        />
-        <input
-          type="number"
-          ref={aadharRef}
-          className="aadhar"
-          required
-          min={100000000000}
-          max={999999999999}
-        />
-        <input
-          type="number"
-          ref={mobileRef}
-          className="mobile"
-          required
-          min={1000000000}
-          max={9999999999}
-        />
-        <input type="number" className="age" value={ageDifference} disabled />
-        <button type="submit" className="submitButton">
-          Add Person
-        </button>
+        <p className="formTitle">Fill below form for New Entry</p>
+        <div className="addDetails">
+          <input type="text" ref={nameRef} className="name" placeholder="Name" required />
+          <input
+            type="date"
+            ref={dateRef}
+            className="dob"
+            required
+            onChange={ageCalculator}
+            placeholder="Date of Birth"
+          />
+          <input
+            type="number"
+            ref={aadharRef}
+            className="aadhar"
+            required
+            min={100000000000}
+            max={999999999999}
+            placeholder="Aadhar Number"
+          />
+          <input
+            type="number"
+            ref={mobileRef}
+            className="mobile"
+            required
+            min={1000000000}
+            max={9999999999}
+            placeholder="Mobile Number"
+          />
+          <input type="number" className="age" 
+            placeholder="Age" value={ageDifference} disabled />
+          <button type="submit" className="submitButton">
+            Add Person
+          </button>
+        </div>
       </form>
 
-      <Table rows={rows} setRows={setRow} />
+      <Table rows={JSON.parse(localStorage.getItem("rows"))} setRows={setRow} />
 
       <div className="addBtnContainer">
         <button className="addBtn" onClick={() => setHidden(() => "flex")}>

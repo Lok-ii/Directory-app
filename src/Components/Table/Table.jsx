@@ -5,9 +5,9 @@ import React from 'react'
 
 const Table = (props) => {
 
-  const deleteRow = (e)=>{
+  const deleteRow = (e, aadhar)=>{
     props.setRows((prev)=>{
-      let newData = prev.filter((_, i) => i != e.target.id);
+      let newData = prev.filter((data) => data.aadhar != aadhar);
       localStorage.setItem("rows", JSON.stringify(newData));
       return newData;
     });
@@ -31,7 +31,7 @@ const Table = (props) => {
                 <td>{row.aadhar}</td>
                 <td>{row.mobile}</td>
                 <td>{row.age}</td>
-                <td><button id={idx} className='addBtn' onClick={deleteRow}>Delete</button></td>
+                <td><button id={idx} className='addBtn' onClick={(e)=>{deleteRow(e, row.aadhar)}}>Delete</button></td>
               </tr>
             })
           }
