@@ -5,16 +5,16 @@ import Table from "../Table/Table";
 const AddNewPerson = () => {
   let currDate = new Date();
   const nameRef = useRef(null);
-  const dateRef = useRef(currDate);
-  const aadharRef = useRef();
-  const mobileRef = useRef();
-  const [ageDifference, setDiff] = useState("");
+  const dateRef = useRef("");
+  const aadharRef = useRef(null);
+  const mobileRef = useRef(null);
+  const [ageDifference, setDiff] = useState(0);
   const [rows, setRow] = useState([]);
   const [hidden, setHidden] = useState("none");
 
   useEffect(() => {
-    setRow(() => {
-      let data = JSON.parse(localStorage.getItem("rows")) || [];
+    setRow((prev) => {
+      let data = JSON.parse(localStorage.getItem("rows")) || prev;
       return data;
     });
   }, []);
@@ -35,13 +35,13 @@ const AddNewPerson = () => {
       localStorage.setItem("rows", JSON.stringify(newData));
       return newData;
     });
-    setHidden(() => "none");
+    setHidden("none");
 
     nameRef.current.value = "";
     dateRef.current.value = "";
     aadharRef.current.value = "";
     mobileRef.current.value = "";
-    setDiff(() => 0);
+    setDiff(0);
   };
 
   const ageCalculator = () => {
@@ -51,7 +51,7 @@ const AddNewPerson = () => {
     if (year <= 0) {
       year = 0;
     }
-    setDiff(() => year);
+    setDiff(year);
   };
   return (
     <div className="addNewPersonPage">
